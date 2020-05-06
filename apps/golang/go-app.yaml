@@ -3,7 +3,7 @@ apiVersion: apps/v1
 metadata:
   name: golang-app
 spec:
-  replicas: 1
+  replicas: 2
   strategy: 
     type: Recreate
   selector:
@@ -20,4 +20,4 @@ spec:
           env:
             - name: URI
               # Not best practice to pass URI as ENV variable, doing so for testing purposes
-              value: <URI for MongoDB deployment to connect to>
+              value: 

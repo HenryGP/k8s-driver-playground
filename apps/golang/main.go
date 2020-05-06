@@ -18,6 +18,8 @@ type MyAggResult struct {
 	PickupArea []string `bson:"pickup_area"`
 }
 
+func randomInsert()
+
 func main() {
 	mongoURI := os.Getenv("URI")
 
@@ -25,14 +27,14 @@ func main() {
 		panic("No URI")
 	}
 
-	client, err := mongo.NewClient(options.Client().ApplyURI(mongoURI))
-	if err != nil {
-		log.Fatal(err)
-	}
-
 	iteration := 0
 
 	for {
+
+		client, err := mongo.NewClient(options.Client().ApplyURI(mongoURI))
+		if err != nil {
+			log.Fatal(err)
+		}
 
 		fmt.Printf("Iteration %v\n", iteration)
 
@@ -148,8 +150,8 @@ func main() {
 		}
 		fmt.Println("Done.")
 
-		fmt.Println("Sleeping for 5 seconds")
-		time.Sleep(5 * time.Second)
+		fmt.Println("Sleeping for 2 seconds")
+		time.Sleep(2 * time.Second)
 		iteration += 1
 	}
 }
