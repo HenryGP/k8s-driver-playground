@@ -1,4 +1,4 @@
-# Config Server Replica
+---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -18,26 +18,26 @@ spec:
         pod-anti-affinity: sample-cluster-config
     spec:
       containers:
-        - name: mongodb-enterprise-database
-          image: quay.io/mongodb/mongodb-enterprise-appdb:10.2.15.5958-1
-          ports:
-          - containerPort: 27017
-          env:
-          - name: HEADLESS_AGENT
-            value: "true"
-          - name: AUTOMATION_CONFIG_MAP
-            value: "test-sh-config"
-          volumeMounts:
-          - mountPath: /var/lib/mongodb-automation/
-            name: cluster-config
-            readOnly: true
-        volumes:
-          - configMap:
-              defaultMode: 420
-              name: test-sh-config
-            name: cluster-config
+      - name: mongodb-enterprise-database
+        image: quay.io/mongodb/mongodb-enterprise-appdb:10.2.15.5958-1
+        ports:
+        - containerPort: 27017
+        env:
+        - name: HEADLESS_AGENT
+          value: "true"
+        - name: AUTOMATION_CONFIG_MAP
+          value: "test-sh-config"
+        volumeMounts:
+        - mountPath: /var/lib/mongodb-automation/
+          name: cluster-config
+          readOnly: true
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: test-sh-config
+        name: cluster-config
 
-# Shard 0 Replica
+---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -56,27 +56,27 @@ spec:
         app: sample-cluster-sh
         pod-anti-affinity: sample-cluster-0
     spec:
-        containers:
-            - name: mongodb-enterprise-database
-              image: quay.io/mongodb/mongodb-enterprise-appdb:10.2.15.5958-1
-              ports:
-              - containerPort: 27017
-              env:
-              - name: HEADLESS_AGENT
-                value: "true"
-              - name: AUTOMATION_CONFIG_MAP
-                value: "test-sh-config"
-              volumeMounts:
-              - mountPath: /var/lib/mongodb-automation/
-                name: cluster-config
-                readOnly: true
-            volumes:
-              - configMap:
-                  defaultMode: 420
-                  name: test-sh-config
-                name: cluster-config
+      containers:
+      - name: mongodb-enterprise-database
+        image: quay.io/mongodb/mongodb-enterprise-appdb:10.2.15.5958-1
+        ports:
+        - containerPort: 27017
+        env:
+        - name: HEADLESS_AGENT
+          value: "true"
+        - name: AUTOMATION_CONFIG_MAP
+          value: "test-sh-config"
+        volumeMounts:
+        - mountPath: /var/lib/mongodb-automation/
+          name: cluster-config
+          readOnly: true
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: test-sh-config
+        name: cluster-config
 
-# Shard 1 Replica
+---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -95,27 +95,27 @@ spec:
         app: sample-cluster-sh
         pod-anti-affinity: sample-cluster-1
     spec:
-        containers:
-            - name: mongodb-enterprise-database
-              image: quay.io/mongodb/mongodb-enterprise-appdb:10.2.15.5958-1
-              ports:
-              - containerPort: 27017
-              env:
-              - name: HEADLESS_AGENT
-                value: "true"
-              - name: AUTOMATION_CONFIG_MAP
-                value: "test-sh-config"
-              volumeMounts:
-              - mountPath: /var/lib/mongodb-automation/
-                name: cluster-config
-                readOnly: true
-            volumes:
-              - configMap:
-                  defaultMode: 420
-                  name: test-sh-config
-                name: cluster-config
+      containers:
+      - name: mongodb-enterprise-database
+        image: quay.io/mongodb/mongodb-enterprise-appdb:10.2.15.5958-1
+        ports:
+        - containerPort: 27017
+        env:
+        - name: HEADLESS_AGENT
+          value: "true"
+        - name: AUTOMATION_CONFIG_MAP
+          value: "test-sh-config"
+        volumeMounts:
+        - mountPath: /var/lib/mongodb-automation/
+          name: cluster-config
+          readOnly: true
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: test-sh-config
+        name: cluster-config
 
-# Mongos processes
+---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -123,33 +123,33 @@ metadata:
     app: sample-cluster-svc
   name: sample-cluster-mongos
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
-      app: ssample-cluster-svc
+      app: sample-cluster-svc
   serviceName: sample-cluster-svc
   template:
     metadata:
       labels:
         app: sample-cluster-svc
-        pod-anti-affinity: sample-cluster-mongos
+        pod-anti-affinity: sample-cluster-svc
     spec:
-        containers:
-            - name: mongodb-enterprise-database
-              image: quay.io/mongodb/mongodb-enterprise-appdb:10.2.15.5958-1
-              ports:
-              - containerPort: 27017
-              env:
-              - name: HEADLESS_AGENT
-                value: "true"
-              - name: AUTOMATION_CONFIG_MAP
-                value: "test-sh-config"
-              volumeMounts:
-              - mountPath: /var/lib/mongodb-automation/
-                name: cluster-config
-                readOnly: true
-            volumes:
-              - configMap:
-                  defaultMode: 420
-                  name: test-sh-config
-                name: cluster-config
+      containers:
+      - name: mongodb-enterprise-database
+        image: quay.io/mongodb/mongodb-enterprise-appdb:10.2.15.5958-1
+        ports:
+        - containerPort: 27017
+        env:
+        - name: HEADLESS_AGENT
+          value: "true"
+        - name: AUTOMATION_CONFIG_MAP
+          value: "test-sh-config"
+        volumeMounts:
+        - mountPath: /var/lib/mongodb-automation/
+          name: cluster-config
+          readOnly: true
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: test-sh-config
+        name: cluster-config

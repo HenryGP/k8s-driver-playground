@@ -39,7 +39,7 @@
             "args2_6": {
                 "net": {
                     "port": 27017,
-                    "tls": {
+                    "ssl": {
                         "mode": "disabled"
                     }
                 },
@@ -64,7 +64,7 @@
             "args2_6": {
                 "net": {
                     "port": 27017,
-                    "tls": {
+                    "ssl": {
                         "mode": "disabled"
                     }
                 },
@@ -89,7 +89,7 @@
             "args2_6": {
                 "net": {
                     "port": 27017,
-                    "tls": {
+                    "ssl": {
                         "mode": "disabled"
                     }
                 },
@@ -122,7 +122,7 @@
             "args2_6": {
                 "net": {
                     "port": 27017,
-                    "tls": {
+                    "ssl": {
                         "mode": "disabled"
                     }
                 },
@@ -155,7 +155,7 @@
             "args2_6": {
                 "net": {
                     "port": 27017,
-                    "tls": {
+                    "ssl": {
                         "mode": "disabled"
                     }
                 },
@@ -188,7 +188,7 @@
             "args2_6": {
                 "net": {
                     "port": 27017,
-                    "tls": {
+                    "ssl": {
                         "mode": "disabled"
                     }
                 },
@@ -218,7 +218,7 @@
             "args2_6": {
                 "net": {
                     "port": 27017,
-                    "tls": {
+                    "ssl": {
                         "mode": "disabled"
                     }
                 },
@@ -248,7 +248,7 @@
             "args2_6": {
                 "net": {
                     "port": 27017,
-                    "tls": {
+                    "ssl": {
                         "mode": "disabled"
                     }
                 },
@@ -278,7 +278,7 @@
             "args2_6": {
                 "net": {
                     "port": 27017,
-                    "tls": {
+                    "ssl": {
                         "mode": "disabled"
                     }
                 },
@@ -308,7 +308,7 @@
             "args2_6": {
                 "net": {
                     "port": 27017,
-                    "tls": {
+                    "ssl": {
                         "mode": "disabled"
                     }
                 },
@@ -338,7 +338,7 @@
             "args2_6": {
                 "net": {
                     "port": 27017,
-                    "tls": {
+                    "ssl": {
                         "mode": "disabled"
                     }
                 },
