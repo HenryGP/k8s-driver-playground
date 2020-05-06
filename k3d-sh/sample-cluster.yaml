@@ -17,6 +17,15 @@ spec:
         app: sample-cluster-cs
         pod-anti-affinity: sample-cluster-config
     spec:
+      initContainers:
+        - name: tune-db
+          image: alpine
+          command: ['sh','-c', 'sed "s/default/$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)/g" /var/lib/mongodb-automation/cluster-config.json > /tmp/cluster-config.json']
+          volumeMounts:
+          - mountPath: /tmp/
+            name: config-vol
+          - mountPath: /var/lib/mongodb-automation/
+            name: cluster-config
       containers:
       - name: mongodb-enterprise-database
         image: quay.io/mongodb/mongodb-enterprise-appdb:10.2.15.5958-1
@@ -29,9 +38,11 @@ spec:
           value: "test-sh-config"
         volumeMounts:
         - mountPath: /var/lib/mongodb-automation/
-          name: cluster-config
+          name: config-vol
           readOnly: true
       volumes:
+      - name: config-vol
+        emptyDir: {}
       - configMap:
           defaultMode: 420
           name: test-sh-config
@@ -56,6 +67,15 @@ spec:
         app: sample-cluster-sh
         pod-anti-affinity: sample-cluster-0
     spec:
+      initContainers:
+      - name: tune-db
+        image: alpine
+        command: ['sh','-c', 'sed "s/default/$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)/g" /var/lib/mongodb-automation/cluster-config.json > /tmp/cluster-config.json']
+        volumeMounts:
+        - mountPath: /tmp/
+          name: config-vol
+        - mountPath: /var/lib/mongodb-automation/
+          name: cluster-config
       containers:
       - name: mongodb-enterprise-database
         image: quay.io/mongodb/mongodb-enterprise-appdb:10.2.15.5958-1
@@ -68,9 +88,11 @@ spec:
           value: "test-sh-config"
         volumeMounts:
         - mountPath: /var/lib/mongodb-automation/
-          name: cluster-config
+          name: config-vol
           readOnly: true
       volumes:
+      - name: config-vol
+        emptyDir: {}
       - configMap:
           defaultMode: 420
           name: test-sh-config
@@ -95,6 +117,15 @@ spec:
         app: sample-cluster-sh
         pod-anti-affinity: sample-cluster-1
     spec:
+      initContainers:
+        - name: tune-db
+          image: alpine
+          command: ['sh','-c', 'sed "s/default/$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)/g" /var/lib/mongodb-automation/cluster-config.json > /tmp/cluster-config.json']
+          volumeMounts:
+          - mountPath: /tmp/
+            name: config-vol
+          - mountPath: /var/lib/mongodb-automation/
+            name: cluster-config
       containers:
       - name: mongodb-enterprise-database
         image: quay.io/mongodb/mongodb-enterprise-appdb:10.2.15.5958-1
@@ -107,9 +138,11 @@ spec:
           value: "test-sh-config"
         volumeMounts:
         - mountPath: /var/lib/mongodb-automation/
-          name: cluster-config
+          name: config-vol
           readOnly: true
       volumes:
+      - name: config-vol
+        emptyDir: {}
       - configMap:
           defaultMode: 420
           name: test-sh-config
@@ -134,6 +167,15 @@ spec:
         app: sample-cluster-svc
         pod-anti-affinity: sample-cluster-svc
     spec:
+      initContainers:
+        - name: tune-db
+          image: alpine
+          command: ['sh','-c', 'sed "s/default/$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace)/g" /var/lib/mongodb-automation/cluster-config.json > /tmp/cluster-config.json']
+          volumeMounts:
+          - mountPath: /tmp/
+            name: config-vol
+          - mountPath: /var/lib/mongodb-automation/
+            name: cluster-config      
       containers:
       - name: mongodb-enterprise-database
         image: quay.io/mongodb/mongodb-enterprise-appdb:10.2.15.5958-1
@@ -146,9 +188,11 @@ spec:
           value: "test-sh-config"
         volumeMounts:
         - mountPath: /var/lib/mongodb-automation/
-          name: cluster-config
+          name: config-vol
           readOnly: true
       volumes:
+      - name: config-vol
+        emptyDir: {}
       - configMap:
           defaultMode: 420
           name: test-sh-config

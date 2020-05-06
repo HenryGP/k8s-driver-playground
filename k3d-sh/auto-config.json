@@ -51,7 +51,7 @@
             "authSchemaVersion": 5,
             "cluster": "sample-cluster",
             "featureCompatibilityVersion": "4.2",
-            "hostname": "sample-cluster-mongos-0.sample-cluster-svc.mongodb.svc.cluster.local",
+            "hostname": "sample-cluster-mongos-0.sample-cluster-svc.default.svc.cluster.local",
             "logRotate": {
                 "sizeThresholdMB": 1000.0,
                 "timeThresholdHrs": 24
@@ -76,7 +76,7 @@
             "authSchemaVersion": 5,
             "cluster": "sample-cluster",
             "featureCompatibilityVersion": "4.2",
-            "hostname": "sample-cluster-mongos-1.sample-cluster-svc.mongodb.svc.cluster.local",
+            "hostname": "sample-cluster-mongos-1.sample-cluster-svc.default.svc.cluster.local",
             "logRotate": {
                 "sizeThresholdMB": 1000.0,
                 "timeThresholdHrs": 24
@@ -109,7 +109,7 @@
             },
             "authSchemaVersion": 5,
             "featureCompatibilityVersion": "4.2",
-            "hostname": "sample-cluster-config-0.sample-cluster-cs.mongodb.svc.cluster.local",
+            "hostname": "sample-cluster-config-0.sample-cluster-cs.default.svc.cluster.local",
             "logRotate": {
                 "sizeThresholdMB": 1000.0,
                 "timeThresholdHrs": 24
@@ -142,7 +142,7 @@
             },
             "authSchemaVersion": 5,
             "featureCompatibilityVersion": "4.2",
-            "hostname": "sample-cluster-config-1.sample-cluster-cs.mongodb.svc.cluster.local",
+            "hostname": "sample-cluster-config-1.sample-cluster-cs.default.svc.cluster.local",
             "logRotate": {
                 "sizeThresholdMB": 1000.0,
                 "timeThresholdHrs": 24
@@ -175,7 +175,7 @@
             },
             "authSchemaVersion": 5,
             "featureCompatibilityVersion": "4.2",
-            "hostname": "sample-cluster-config-2.sample-cluster-cs.mongodb.svc.cluster.local",
+            "hostname": "sample-cluster-config-2.sample-cluster-cs.default.svc.cluster.local",
             "logRotate": {
                 "sizeThresholdMB": 1000.0,
                 "timeThresholdHrs": 24
@@ -205,7 +205,7 @@
             },
             "authSchemaVersion": 5,
             "featureCompatibilityVersion": "4.2",
-            "hostname": "sample-cluster-0-0.sample-cluster-sh.mongodb.svc.cluster.local",
+            "hostname": "sample-cluster-0-0.sample-cluster-sh.default.svc.cluster.local",
             "logRotate": {
                 "sizeThresholdMB": 1000.0,
                 "timeThresholdHrs": 24
@@ -235,7 +235,7 @@
             },
             "authSchemaVersion": 5,
             "featureCompatibilityVersion": "4.2",
-            "hostname": "sample-cluster-0-1.sample-cluster-sh.mongodb.svc.cluster.local",
+            "hostname": "sample-cluster-0-1.sample-cluster-sh.default.svc.cluster.local",
             "logRotate": {
                 "sizeThresholdMB": 1000.0,
                 "timeThresholdHrs": 24
@@ -265,7 +265,7 @@
             },
             "authSchemaVersion": 5,
             "featureCompatibilityVersion": "4.2",
-            "hostname": "sample-cluster-0-2.sample-cluster-sh.mongodb.svc.cluster.local",
+            "hostname": "sample-cluster-0-2.sample-cluster-sh.default.svc.cluster.local",
             "logRotate": {
                 "sizeThresholdMB": 1000.0,
                 "timeThresholdHrs": 24
@@ -295,7 +295,7 @@
             },
             "authSchemaVersion": 5,
             "featureCompatibilityVersion": "4.2",
-            "hostname": "sample-cluster-1-0.sample-cluster-sh.mongodb.svc.cluster.local",
+            "hostname": "sample-cluster-1-0.sample-cluster-sh.default.svc.cluster.local",
             "logRotate": {
                 "sizeThresholdMB": 1000.0,
                 "timeThresholdHrs": 24
@@ -325,7 +325,7 @@
             },
             "authSchemaVersion": 5,
             "featureCompatibilityVersion": "4.2",
-            "hostname": "sample-cluster-1-1.sample-cluster-sh.mongodb.svc.cluster.local",
+            "hostname": "sample-cluster-1-1.sample-cluster-sh.default.svc.cluster.local",
             "logRotate": {
                 "sizeThresholdMB": 1000.0,
                 "timeThresholdHrs": 24
@@ -355,7 +355,7 @@
             },
             "authSchemaVersion": 5,
             "featureCompatibilityVersion": "4.2",
-            "hostname": "sample-cluster-1-2.sample-cluster-sh.mongodb.svc.cluster.local",
+            "hostname": "sample-cluster-1-2.sample-cluster-sh.default.svc.cluster.local",
             "logRotate": {
                 "sizeThresholdMB": 1000.0,
                 "timeThresholdHrs": 24
