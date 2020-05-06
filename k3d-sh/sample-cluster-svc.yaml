@@ -1,0 +1,41 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-cluster-cs
+  labels:
+    app: sample-cluster-cs
+spec:
+  ports:
+  - port: 27017
+    name: mongodb
+  selector:
+    app: sample-cluster-cs
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-cluster-sh
+  labels:
+    app: sample-cluster-sh
+spec:
+  ports:
+  - port: 27017
+    name: mongodb
+  selector:
+    app: sample-cluster-sh
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sample-cluster-svc
+  labels:
+    app: sample-cluster-svc
+spec:
+  ports:
+  - port: 27017
+    name: mongodb
+  selector:
+    app: sample-cluster-svc
