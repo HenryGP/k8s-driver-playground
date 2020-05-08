@@ -1,0 +1,23 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: golang-app
+spec:
+  replicas: 2
+  strategy: 
+    type: Recreate
+  selector:
+    matchLabels:
+      deploy: applications
+  template:
+    metadata:
+      labels:
+        deploy: applications
+    spec:
+      containers:
+        - name: golang-app
+          image: enriquevgp/demo-go:latest
+          env:
+            - name: URI
+              # Not best practice to pass URI as ENV variable, doing so for testing purposes
+              value: 
