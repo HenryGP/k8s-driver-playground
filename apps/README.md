@@ -2,6 +2,30 @@
 
 The small code samples inside this directory are meant to be used for testing an app running inside a Docker container. 
 
+
+## Uploading the built image to Docker Hub
+1. Login to Docker Hub using the CLI:
+   ```
+   docker login
+   ```
+1. When building the image, set a tag that contains your Docker Hub username as a prefix:
+   ```
+   docker build -t <docker_username>/<image_name>:<version>
+   ```
+   For example:
+   ```
+   docker build -t enrique/demo-app:latest
+   ```
+1. Push the image to Docker Hub:
+   ```
+   docker push <docker_username>/<image_name>:<version>
+   ```
+   Matching the tag from the previous step. If the repository doesn't exist already, it will be created in Docker Hub and associated to your account.
+1. View the image details by navigating to the following URL:
+   ```
+   https://hub.docker.com/repository/docker/<username>/<image_name>
+   ```
+
 ## Uploading the built image into a registry in AWS ECR
 1. Create a registry entry in AWS ECR using the `aws` CLI:
    ```
